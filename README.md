@@ -13,3 +13,7 @@ root123
 # Ver datos
 USE ordinario_modelo_admin;
 SHOW TABLES;
+
+# AWS DATABASE
+ls-683fda1259c2f860360ef74665eba03ebf632a0f.cxaoe08gs68k.us-east-1.rds.amazonaws.com
+dbmasteruser
