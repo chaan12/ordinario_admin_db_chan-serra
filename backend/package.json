@@ -6,7 +6,12 @@
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["express", "mysql2", "dotenv", "backend"],
+  "keywords": [
+    "express",
+    "mysql2",
+    "dotenv",
+    "backend"
+  ],
   "author": "Chan y Serra",
   "license": "ISC",
   "description": "Backend del ordianrio de Administración de Base de Datos",
@@ -16,4 +21,3 @@
     "mysql2": "^3.11.5"
   }
 }
-
