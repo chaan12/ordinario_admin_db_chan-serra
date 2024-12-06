@@ -28,13 +28,13 @@ npm init -y
 # Instalar dependencias
 npm install
 
-# Si el puerto 3000 esta ocupado (en mi caso me dio problemas cuando levantaba, tiraba y volvia a levantar)
-lsof -i :3000
-kill -9 {PID}
-
 # Inicar 
 npm start
 Debe salir (si todo está bien):
 -Servidor corriendo en http://localhost:3000
 -Conexión exitosa a la base de datos.
 
+# Para facilidad, le agregue unos datos en automático en MySQL
+USE ordinario_modelo_admin;
+ALTER TABLE estudiantes MODIFY COLUMN fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP;
+ALTER TABLE estudiantes MODIFY COLUMN usuario_creacio VARCHAR(255) DEFAULT 'admin';
