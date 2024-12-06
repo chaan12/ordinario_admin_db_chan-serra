@@ -2,7 +2,6 @@ const express = require('express');
 const db = require('../db');
 const router = express.Router();
 
-// GET para Obtener todas las calificaciones
 router.get('/', (req, res) => {
   const query = 'SELECT * FROM calificaciones';
   db.query(query, (err, results) => {
@@ -15,19 +14,18 @@ router.get('/', (req, res) => {
   });
 });
 
-// POST para Crear una nueva calificación
 router.post('/', (req, res) => {
-  const { alumno_id, asignatura_id, calificacion } = req.body;
+  const { estudiante_id, maestro_id, materia_id, create_user } = req.body;
 
-  if (!alumno_id || !asignatura_id || !calificacion) {
+  if (!estudiante_id || !maestro_id || !materia_id || !create_user) {
     return res.status(400).send('Todos los campos son obligatorios');
   }
 
   const query = `
-    INSERT INTO calificaciones (alumno_id, asignatura_id, calificacion)
-    VALUES (?, ?, ?)
+    INSERT INTO calificaciones (estudiante_id, maestro_id, materia_id, create_user, create_date)
+    VALUES (?, ?, ?, ?, NOW())
   `;
-  const values = [alumno_id, asignatura_id, calificacion];
+  const values = [estudiante_id, maestro_id, materia_id, create_user];
 
   db.query(query, values, (err, results) => {
     if (err) {

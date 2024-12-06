@@ -2,7 +2,6 @@ const express = require('express');
 const db = require('../db');
 const router = express.Router();
 
-// GET para Obtener todas las materias
 router.get('/', (req, res) => {
   const query = 'SELECT * FROM materias';
   db.query(query, (err, results) => {
@@ -15,7 +14,6 @@ router.get('/', (req, res) => {
   });
 });
 
-// POST para Crear una nueva materia
 router.post('/', (req, res) => {
   const { nombre, profesor_id, create_user } = req.body;
 

@@ -2,7 +2,6 @@ const express = require('express');
 const db = require('../db');
 const router = express.Router();
 
-// GET oara Obtener todos los estudiantes
 router.get('/', (req, res) => {
   const query = 'SELECT * FROM estudiantes';
   db.query(query, (err, results) => {
@@ -15,18 +14,16 @@ router.get('/', (req, res) => {
   });
 });
 
-// POST para Crear un nuevo estudiante
 router.post('/', (req, res) => {
   const { nombre, apellidos, email, matricula, edad, semestre } = req.body;
 
-  // Validación de datos
   if (!nombre || !apellidos || !email || !matricula || !edad || !semestre) {
     return res.status(400).send('Todos los campos son obligatorios');
   }
 
   const query = `
-    INSERT INTO estudiantes (nombre, apellidos, email, matricula, edad, semestre, usuario_creacion)
-    VALUES (?, ?, ?, ?, ?, ?, 'admin')
+    INSERT INTO estudiantes (nombre, apellidos, email, matricula, edad, semestre)
+    VALUES (?, ?, ?, ?, ?, ?)
   `;
   const values = [nombre, apellidos, email, matricula, edad, semestre];
 
@@ -38,5 +35,6 @@ router.post('/', (req, res) => {
     res.status(201).send('Estudiante agregado correctamente');
   });
 });
+
 
 module.exports = router;
