@@ -1,4 +1,7 @@
 # ordinario_admin_db_chan-serra
+Hecho por:
+Eduardo Chan
+Brillaldo Serra
 
 # Elimina datos previos para garantizar que los scripts se ejecuten:
 docker-compose down -v
@@ -38,3 +41,7 @@ Debe salir (si todo está bien):
 USE ordinario_modelo_admin;
 ALTER TABLE estudiantes MODIFY COLUMN fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP;
 ALTER TABLE estudiantes MODIFY COLUMN usuario_creacio VARCHAR(255) DEFAULT 'admin';
+
+
+# LINK DEL REPOSITORIO EN GITHUB
+https://github.com/chaan12/ordinario_admin_db_chan-serra
